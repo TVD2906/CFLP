@@ -82,4 +82,27 @@ class Program
         if (carteDupaTitlu != null)
         {
             Console.WriteLine($"Cartile cu titlul '{titluCautat}':");
-            Console.WriteLine($"ID: {carteDupaTitlu.ID}, Titlu: {car
+            Console.WriteLine($"ID: {carteDupaTitlu.ID}, Titlu: {carteDupaTitlu.Titlu}, Autor: {carteDupaTitlu.Autor}, An publicare: {carteDupaTitlu.AnPublicare}");
+        }
+        else
+        {
+            Console.WriteLine($"Nu există nicio carte cu titlul '{titluCautat}'.");
+        }
+
+        // Cautare carti dupa autor
+        string autorCautat = "Lev Tolstoi";
+        List<Carte> cartiDupaAutor = biblioteca.CautaDupaAutor(autorCautat);
+        if (cartiDupaAutor.Count > 0)
+        {
+            Console.WriteLine($"Cărțile scrise de autorul '{autorCautat}':");
+            foreach (var carte in cartiDupaAutor)
+            {
+                Console.WriteLine($"ID: {carte.ID}, Titlu: {carte.Titlu}, Autor: {carte.Autor}, An publicare: {carte.AnPublicare}");
+            }
+        }
+        else
+        {
+            Console.WriteLine($"Nu există nicio carte scrisă de autorul '{autorCautat}'.");
+        }
+    }
+}
